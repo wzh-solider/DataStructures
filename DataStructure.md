@@ -29,4 +29,4 @@
 - 记录数组一共有几行几列，有多少不同的值
 - 把具有不同值的元素行列值，记录在一个小规模的数组中，从而缩小程序规模
 
-![image-20230903174922686](C:\Users\24603\AppData\Roaming\Typora\typora-user-images\image-20230903174922686.png)
+![image-20230903174922686](D:\home\coding\java\DataStructures\imgs\image-20230903174922686.png)
