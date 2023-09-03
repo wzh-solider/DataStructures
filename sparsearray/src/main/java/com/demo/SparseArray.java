@@ -113,7 +113,6 @@ public class SparseArray {
             int cols = sparseArr[i][1];
             restoreArray[rows][cols] = sparseArr[i][2];
         }
-
         return restoreArray;
     }
 
