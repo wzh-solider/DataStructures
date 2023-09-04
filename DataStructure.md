@@ -45,4 +45,5 @@
 
 **front**会随着数据输出而改变，而**rear**则是随着数据输入而改变
 
-![image-20230904183829358](C:\Users\24603\AppData\Roaming\Typora\typora-user-images\image-20230904183829358.png)
+![image-20230904183829358](D:\home\coding\java\DataStructures\imgs\image-20230904183829358.png)
+
