@@ -1,4 +1,4 @@
-package com.solider.demo;
+package com.solider.demoPlus;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -9,10 +9,10 @@ import java.util.Scanner;
  * @Date 2023/9/4 18:42
  * @since 1.0
  */
-public class QueueTest {
+public class QueueTestPro {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Queue queue = new Queue(10);
+        QueuePlus queue = new QueuePlus(11);
         int count = 0;
         while (count++ != 10) {
             System.out.print("请输入数据：");
@@ -26,22 +26,20 @@ public class QueueTest {
         queue.getQueue();
 
         // 取出头部数据
-        System.out.println(queue.headQueue());
+        System.out.println("\n" + queue.headQueue());
     }
 }
 
-// 声明一个队列
-class Queue {
-    private int maxSize; // 队列最大容量
+// 环形队列
+class QueuePlus {
+    private int maxSize; // 队列最大容量, 但是环形队列的有效数据是 maxSize - 1
     private int front; // 队列头
     private int rear; // 队列尾
     private int[] arr; // 队列数组
 
-    public Queue(int maxSize) {
+    public QueuePlus(int maxSize) {
         this.maxSize = maxSize;
         this.arr = new int[maxSize];
-        this.front = -1; // 指向头部位置
-        this.rear = -1; // 指向尾部位置
     }
 
     /**
@@ -49,7 +47,7 @@ class Queue {
      * @return 队列满返回true, 否则返回false
      */
     public boolean isFull() {
-        return this.rear == maxSize - 1;
+        return (rear + 1) % maxSize == front;
     }
 
     /**
@@ -69,7 +67,10 @@ class Queue {
             System.out.println("队列已满，无法添加");
         } else {
             // 向队列中添加数据
-            arr[++rear] = data;
+            arr[rear] = data;
+
+            // 环形队列，因额外有一个约定，所以需要将rear后移
+            rear = (rear + 1) % maxSize;
             System.out.println("添加成功");
         }
     }
@@ -83,7 +84,9 @@ class Queue {
         if (isEmpty()) {
             throw new RuntimeException("队列为空");
         }
-        return arr[++front];
+        int tmp = arr[front];
+        front = (front + 1) % maxSize;
+        return tmp;
     }
 
     /**
@@ -95,7 +98,19 @@ class Queue {
             return;
         }
         // 遍历队列数组
-        Arrays.stream(arr).forEach(item -> System.out.println(item + "\t"));
+        // Arrays.stream(arr).forEach(item -> System.out.println(item + "\t"));
+
+        // 考虑使用for循环，以增强理解
+        for (int i = front; i < front + size(); i++) {
+            System.out.print(arr[i % maxSize] + "\t");
+        }
+    }
+
+    /**
+     * 记录循环队列中的有效数据
+     */
+    public int size() {
+        return (rear + maxSize - front) % maxSize;
     }
 
     /**
