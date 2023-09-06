@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="sparsearray" />
         <module name="queue" />
+        <module name="linkedList" />
       </profile>
     </annotationProcessing>
   </component>

@@ -6,6 +6,7 @@
       <list>
         <option value="$PROJECT_DIR$/sparsearray/pom.xml" />
         <option value="$PROJECT_DIR$/queue/pom.xml" />
+        <option value="$PROJECT_DIR$/linkedList/pom.xml" />
       </list>
     </option>
   </component>
