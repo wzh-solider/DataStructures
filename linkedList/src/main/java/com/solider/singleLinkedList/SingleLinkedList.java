@@ -1,4 +1,4 @@
-package com.solider;
+package com.solider.singleLinkedList;
 
 
 /**
