@@ -78,4 +78,4 @@
 
 #### 双向链表
 
-**![image-20230907190102489](C:\Users\24603\AppData\Roaming\Typora\typora-user-images\image-20230907190102489.png)**
+![image-20230907190102489](imgs/image-20230907190102489.png)
